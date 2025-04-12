@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Portal | 智能入口</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0f0f1f;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(87, 108, 188, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 90% 80%, rgba(115, 62, 173, 0.15) 0%, transparent 50%);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #00fffc, #9d4dff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(157, 77, 255, 0.3);
+        }
+
+        .search-box {
+            width: min(800px, 90%);
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.2rem 2rem;
+            border: none;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 30px rgba(157, 77, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            width: 90%;
+            margin-top: 3rem;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: white;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-item img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-item span {
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 2rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo">SmartPortal</div>
+    
+    <div class="search-box">
+        <input type="text" class="search-input" placeholder="搜索或输入网址..." autofocus>
+    </div>
+
+    <div class="grid-container">
+        <a href="#" class="nav-item">
+            <img src="https://www.google.com/favicon.ico" alt="Google">
+            <span>搜索引擎</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="https://github.githubassets.com/favicons/favicon.png" alt="GitHub">
+            <span>代码仓库</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="https://static.zhihu.com/heifetz/favicon.ico" alt="Zhihu">
+            <span>知识社区</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="https://www.youtube.com/s/desktop/b349d058/img/favicon_48.png" alt="YouTube">
+            <span>视频平台</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="https://mail.google.com/favicon.ico" alt="Gmail">
+            <span>电子邮件</span>
+        </a>
+        <a href="#" class="nav-item">
+            <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf" alt="Drive">
+            <span>云存储</span>
+        </a>
+    </div>
+
+    <footer>
+        © 2023 Smart Portal. All rights reserved.
+    </footer>
+</body>
+</html>
