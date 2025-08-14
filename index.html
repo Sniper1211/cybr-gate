@@ -1,10 +1,40 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
-    <link rel="canonical" href="https://www.ok9981.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Smart Portal - 智能导航入口，快速访问Web3观察、小游戏、取名工具等精选服务">
+    <meta name="keywords" content="智能导航,Web3,区块链观察,小游戏,取名工具,导航页面">
+    <meta name="author" content="Smart Portal">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Smart Portal | 智能入口">
+    <meta property="og:description" content="智能导航入口，快速访问Web3观察、小游戏、取名工具等精选服务">
+    <meta property="og:url" content="https://www.ok9981.com">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Smart Portal | 智能入口">
+    <meta property="twitter:description" content="智能导航入口，快速访问Web3观察、小游戏、取名工具等精选服务">
+
+    <link rel="canonical" href="https://www.ok9981.com" />
     <title>Smart Portal | 智能入口</title>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNCIgZmlsbD0idXJsKCNncmFkaWVudDBfbGluZWFyXzFfMSkiLz4KPHBhdGggZD0iTTE2IDhDMTIuNjg2MyA4IDEwIDEwLjY4NjMgMTAgMTRWMThDMTAgMjEuMzEzNyAxMi42ODYzIDI0IDE2IDI0QzE5LjMxMzcgMjQgMjIgMjEuMzEzNyAyMiAxOFYxNEMyMiAxMC42ODYzIDE5LjMxMzcgOCAxNiA4WiIgZmlsbD0id2hpdGUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0iZ3JhZGllbnQwX2xpbmVhcl8xXzEiIHgxPSIwIiB5MT0iMCIgeDI9IjMyIiB5Mj0iMzIiIGdyYWRpZW50VW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KPHN0b3Agc3RvcC1jb2xvcj0iIzAwRkZGQyIvPgo8c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiM5RDRERkYiLz4KPC9saW5lYXJHcmFkaWVudD4KPC9kZWZzPgo8L3N2Zz4K">
+
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://zkobserver.site">
+    <link rel="preconnect" href="https://game.ok9981.com">
+    <link rel="preconnect" href="https://name.ok9981.com">
+    <link rel="preconnect" href="https://thecodecraft.site">
+    <link rel="preconnect" href="http://indiestarter.space">
     <style>
         * {
             margin: 0;
@@ -21,7 +51,7 @@
             flex-direction: column;
             align-items: center;
             padding: 2rem;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 10% 20%, rgba(87, 108, 188, 0.15) 0%, transparent 50%),
                 radial-gradient(circle at 90% 80%, rgba(115, 62, 173, 0.15) 0%, transparent 50%);
         }
@@ -31,38 +61,18 @@
             font-weight: 700;
             margin-bottom: 3rem;
             background: linear-gradient(45deg, #00fffc, #9d4dff);
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
             text-shadow: 0 0 20px rgba(157, 77, 255, 0.3);
         }
 
-        .search-box {
-            width: min(800px, 90%);
-            margin: 2rem 0;
-            position: relative;
-        }
 
-        .search-input {
-            width: 100%;
-            padding: 1.2rem 2rem;
-            border: none;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            color: #fff;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            box-shadow: 0 0 30px rgba(157, 77, 255, 0.3);
-            background: rgba(255, 255, 255, 0.15);
-        }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             max-width: 1000px;
             width: 90%;
@@ -93,7 +103,29 @@
             width: 40px;
             height: 40px;
             margin-bottom: 1rem;
-            filter: brightness(0) invert(1);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .nav-item .icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            background: linear-gradient(45deg, #00fffc, #9d4dff);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-item:hover .icon {
+            transform: scale(1.1);
         }
 
         .nav-item span {
@@ -108,53 +140,186 @@
             font-size: 0.9rem;
         }
 
-        @media (max-width: 768px) {
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
+        .error-message {
+            color: #ff6b6b;
+            text-align: center;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(255, 107, 107, 0.1);
+            border-radius: 8px;
+            display: none;
+        }
+
+        @media (max-width: 1024px) {
             .grid-container {
                 grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
+            }
+
+            .logo {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .nav-item {
+                padding: 1rem;
+            }
+
+            .nav-item .icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 1rem;
+            }
+
+            .grid-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+
+            .nav-item span {
+                font-size: 0.8rem;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="logo">SmartPortal</div>
-    
-    <!-- 搜索框已隐藏
-    <div class="search-box">
-        <input type="text" class="search-input" placeholder="搜索或输入网址..." autofocus>
-    </div>
-    -->
 
-    <div class="grid-container">
-        <a href="https://news.ok9981.com" class="nav-item">
-            <!-- TODO:logo 待修改 -->
-            <img src="https://www.google.com/favicon.ico" alt="DailyNews">
-            <span>每日新闻</span>
+
+
+    <div class="grid-container" role="navigation" aria-label="主要导航">
+        <a href="https://zkobserver.site/" class="nav-item" aria-label="访问Web3观察网站">
+            <div class="icon">🔍</div>
+            <span>Web3观察</span>
         </a>
-        <a href="https://game.ok9981.com" class="nav-item">
-            <img src="https://github.githubassets.com/favicons/favicon.png" alt="GitHub">
+        <a href="https://game.ok9981.com" class="nav-item" aria-label="访问小游戏平台">
+            <div class="icon">🎮</div>
             <span>小游戏</span>
         </a>
-        <a href="https://name.ok9981.com" class="nav-item">
-            <img src="https://static.zhihu.com/heifetz/favicon.ico" alt="Zhihu">
+        <a href="https://name.ok9981.com" class="nav-item" aria-label="访问取名工具">
+            <div class="icon">✨</div>
             <span>取名</span>
         </a>
-        <!-- <a href="#" class="nav-item">
-            <img src="https://www.youtube.com/s/desktop/b349d058/img/favicon_48.png" alt="YouTube">
-            <span>视频平台</span>
+        <a href="https://thecodecraft.site/" class="nav-item" aria-label="访问小白建站">
+            <div class="icon">🏗️</div>
+            <span>小白建站</span>
         </a>
-        <a href="#" class="nav-item">
-            <img src="https://mail.google.com/favicon.ico" alt="Gmail">
-            <span>电子邮件</span>
+        <a href="http://indiestarter.space/" class="nav-item" aria-label="访问建站工具">
+            <div class="icon">🔧</div>
+            <span>建站工具</span>
         </a>
-        <a href="#" class="nav-item">
-            <img src="https://drive-thirdparty.googleusercontent.com/32/type/application/pdf" alt="Drive">
-            <span>云存储</span>
-        </a> -->
+    </div>
+
+    <div class="error-message" id="errorMessage">
+        网络连接出现问题，请检查您的网络设置后重试。
     </div>
 
     <footer>
         © 2025 Smart Portal. All rights reserved.
     </footer>
+
+    <script>
+        // 添加点击反馈和错误处理
+        document.addEventListener('DOMContentLoaded', function () {
+            const navItems = document.querySelectorAll('.nav-item');
+            const errorMessage = document.getElementById('errorMessage');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    // 添加加载状态
+                    this.classList.add('loading');
+
+                    // 检查链接是否可访问（简单的超时检查）
+                    const timeout = setTimeout(() => {
+                        this.classList.remove('loading');
+                        errorMessage.style.display = 'block';
+                        setTimeout(() => {
+                            errorMessage.style.display = 'none';
+                        }, 3000);
+                        e.preventDefault();
+                    }, 5000);
+
+                    // 如果页面正常加载，清除超时
+                    window.addEventListener('beforeunload', () => {
+                        clearTimeout(timeout);
+                    });
+                });
+
+                // 添加键盘导航支持
+                item.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+
+            // 添加页面加载动画
+            document.body.style.opacity = '0';
+            document.body.style.transform = 'translateY(20px)';
+            document.body.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+                document.body.style.transform = 'translateY(0)';
+            }, 100);
+
+            // 预加载关键页面
+            const preloadLinks = [
+                'https://zkobserver.site/',
+                'https://game.ok9981.com',
+                'https://name.ok9981.com',
+                'https://thecodecraft.site/',
+                'http://indiestarter.space/'
+            ];
+
+            preloadLinks.forEach(url => {
+                const link = document.createElement('link');
+                link.rel = 'prefetch';
+                link.href = url;
+                document.head.appendChild(link);
+            });
+        });
+
+        // 添加快捷键支持
+        document.addEventListener('keydown', function (e) {
+            if (e.altKey) {
+                const keyMap = {
+                    '1': 0, // Web3观察
+                    '2': 1, // 小游戏
+                    '3': 2, // 取名
+                    '4': 3, // 小白建站
+                    '5': 4  // 建站工具
+                };
+
+                if (keyMap.hasOwnProperty(e.key)) {
+                    e.preventDefault();
+                    const navItems = document.querySelectorAll('.nav-item');
+                    if (navItems[keyMap[e.key]]) {
+                        navItems[keyMap[e.key]].click();
+                    }
+                }
+            }
+        });
+    </script>
 </body>
+
 </html>
