@@ -35,6 +35,7 @@
     <link rel="preconnect" href="https://name.ok9981.com">
     <link rel="preconnect" href="https://thecodecraft.site">
     <link rel="preconnect" href="http://indiestarter.space">
+    <link rel="preconnect" href="https://iconcut.vercel.app">
     <style>
         * {
             margin: 0;
@@ -226,6 +227,10 @@
             <div class="icon">🔧</div>
             <span>建站工具</span>
         </a>
+        <a href="https://iconcut.vercel.app/" class="nav-item" aria-label="访问图标生成工具">
+            <div class="icon">🎨</div>
+            <span>图标生成</span>
+        </a>
     </div>
 
     <div class="error-message" id="errorMessage">
@@ -288,7 +293,8 @@
                 'https://game.ok9981.com',
                 'https://name.ok9981.com',
                 'https://thecodecraft.site/',
-                'http://indiestarter.space/'
+                'http://indiestarter.space/',
+                'https://iconcut.vercel.app/'
             ];
 
             preloadLinks.forEach(url => {
@@ -307,7 +313,8 @@
                     '2': 1, // 小游戏
                     '3': 2, // 取名
                     '4': 3, // 小白建站
-                    '5': 4  // 建站工具
+                    '5': 4, // 建站工具
+                    '6': 5  // 图标生成
                 };
 
                 if (keyMap.hasOwnProperty(e.key)) {
