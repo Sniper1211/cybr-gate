@@ -249,23 +249,11 @@
 
             navItems.forEach(item => {
                 item.addEventListener('click', function (e) {
-                    // 添加加载状态
+                    // 添加短暂的视觉反馈（0.5秒）
                     this.classList.add('loading');
-
-                    // 检查链接是否可访问（简单的超时检查）
-                    const timeout = setTimeout(() => {
+                    setTimeout(() => {
                         this.classList.remove('loading');
-                        errorMessage.style.display = 'block';
-                        setTimeout(() => {
-                            errorMessage.style.display = 'none';
-                        }, 3000);
-                        e.preventDefault();
-                    }, 5000);
-
-                    // 如果页面正常加载，清除超时
-                    window.addEventListener('beforeunload', () => {
-                        clearTimeout(timeout);
-                    });
+                    }, 500);
                 });
 
                 // 添加键盘导航支持
