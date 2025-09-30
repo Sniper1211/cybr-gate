@@ -326,6 +326,13 @@
                 }
             }
         });
+        // 修复：返回/从缓存恢复后移除禁用状态，保证可再次点击
+        window.addEventListener('pageshow', function () {
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => item.classList.remove('loading'));
+            const errorMessage = document.getElementById('errorMessage');
+            if (errorMessage) errorMessage.style.display = 'none';
+        });
     </script>
 </body>
 
