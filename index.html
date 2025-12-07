@@ -42,6 +42,7 @@
     <link rel="preconnect" href="http://indiestarter.space">
     <link rel="preconnect" href="https://iconcut.vercel.app">
     <link rel="preconnect" href="https://www.meirizixun.site">
+    <link rel="preconnect" href="https://ipassword-ochre.vercel.app">
     <style>
         * {
             margin: 0;
@@ -241,6 +242,10 @@
             <div class="icon">📰</div>
             <span>每日资讯简报</span>
         </a>
+        <a href="https://ipassword-ochre.vercel.app/" class="nav-item" aria-label="访问 iPassword" target="_blank" rel="noopener noreferrer">
+            <div class="icon">🔑</div>
+            <span>iPassword</span>
+        </a>
     </div>
 
     <div class="error-message" id="errorMessage">
@@ -292,7 +297,9 @@
                 'https://name.ok9981.com',
                 'https://thecodecraft.site/',
                 'http://indiestarter.space/',
-                'https://iconcut.vercel.app/'
+                'https://iconcut.vercel.app/',
+                'https://www.meirizixun.site/',
+                'https://ipassword-ochre.vercel.app/'
             ];
 
             preloadLinks.forEach(url => {
@@ -312,7 +319,9 @@
                     '3': 2, // 取名
                     '4': 3, // 小白建站
                     '5': 4, // 建站工具
-                    '6': 5  // 图标生成
+                    '6': 5, // 图标生成
+                    '7': 6, // 每日资讯简报
+                    '8': 7  // iPassword
                 };
 
                 if (keyMap.hasOwnProperty(e.key)) {
@@ -325,6 +334,16 @@
             }
         });
         // 修复：返回/从缓存恢复后移除禁用状态，保证可再次点击
+        window.addEventListener('pageshow', function () {
+            document.querySelectorAll('.nav-item.loading').forEach(el => {
+                el.classList.remove('loading');
+                const span = el.querySelector('span');
+                if (span && span.dataset && span.dataset.originalText) {
+                    span.textContent = span.dataset.originalText;
+                    delete span.dataset.originalText;
+                }
+            });
+        });
         window.addEventListener('pageshow', function () {
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => item.classList.remove('loading'));
