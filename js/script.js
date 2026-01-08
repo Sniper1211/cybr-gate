@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const navigationData = [
+        { url: 'https://zkobserver.site/', icon: '🔍', text: 'Web3观察', label: '访问Web3观察网站' },
+        { url: 'https://game.ok9981.com', icon: '🎮', text: '小游戏', label: '访问小游戏平台' },
+        { url: 'https://name.ok9981.com', icon: '✨', text: '取名', label: '访问取名工具' },
+        { url: 'https://thecodecraft.site/', icon: '🏗️', text: '小白建站', label: '访问小白建站' },
+        { url: 'http://indiestarter.space/', icon: '🔧', text: '建站工具', label: '访问建站工具' },
+        { url: 'https://iconcut.vercel.app/', icon: '🎨', text: '图标生成', label: '访问图标生成工具' },
+        { url: 'https://www.meirizixun.site/', icon: '📰', text: '每日资讯简报', label: '访问每日资讯简报' },
+        { url: 'https://ipassword-ochre.vercel.app/', icon: '🔑', text: 'iPassword', label: '访问 iPassword' },
+        // 在这里添加新的链接，格式如下：
+        { url: 'https://google.com', icon: '🔍', text: 'Google', label: '访问 Google' },
+        // { url: 'https://google.com', icon: '🔍', text: 'Google', label: '访问 Google' },
+    ];
+
+    function renderNavigation() {
+        const gridContainer = document.getElementById('gridContainer');
+        if (!gridContainer) return;
+
+        gridContainer.innerHTML = navigationData.map(item => `
+            <a href="${item.url}" class="nav-item" aria-label="${item.label}" target="_blank" rel="noopener noreferrer">
+                <div class="icon">${item.icon}</div>
+                <span>${item.text}</span>
+            </a>
+        `).join('');
+    }
+
+    renderNavigation();
+
     const navItems = document.querySelectorAll('.nav-item');
     const errorMessage = document.getElementById('errorMessage');
 
@@ -11,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.classList.remove('loading');
             }, 500);
         });
-        
+
         // Removed redundant keydown listener for Enter/Space as <a> tags handle it natively
     });
 
@@ -27,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Dynamic preloading of critical pages
     // Removed to prevent cross-origin prefetch errors
-    
+
     // Network status handling
     function updateOnlineStatus() {
         const errorMessage = document.getElementById('errorMessage');
@@ -51,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
             navItems.forEach(item => {
                 const text = item.querySelector('span').textContent.toLowerCase();
                 const shouldShow = text.includes(searchTerm);
-                
+
                 if (shouldShow) {
                     item.style.display = 'flex';
                     // Reset animation for better UX
@@ -61,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
         });
-        
+
         // Focus shortcut (/)
         document.addEventListener('keydown', (e) => {
             if (e.key === '/' && document.activeElement !== searchInput) {
@@ -96,7 +124,7 @@ document.addEventListener('keydown', function (e) {
         if (!isNaN(key) && key >= 1 && key <= 8) {
             const index = key - 1;
             const navItems = document.querySelectorAll('.nav-item');
-            
+
             if (navItems[index]) {
                 e.preventDefault();
                 navItems[index].click();
@@ -111,7 +139,7 @@ window.addEventListener('pageshow', function () {
     document.querySelectorAll('.nav-item.loading').forEach(el => {
         el.classList.remove('loading');
     });
-    
+
     // Hide error message
     const errorMessage = document.getElementById('errorMessage');
     if (errorMessage) errorMessage.style.display = 'none';
