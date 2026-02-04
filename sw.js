@@ -1,4 +1,4 @@
-const CACHE_NAME = 'smart-portal-v1';
+const CACHE_NAME = 'smart-portal-v2';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
@@ -14,6 +14,8 @@ self.addEventListener('install', (event) => {
         return cache.addAll(ASSETS_TO_CACHE);
       })
   );
+  // Force the waiting service worker to become the active service worker
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -26,15 +28,35 @@ self.addEventListener('activate', (event) => {
           }
         })
       );
+    }).then(() => {
+      // Tell the active service worker to take control of the page immediately
+      return self.clients.claim();
     })
   );
 });
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    caches.match(event.request)
+    fetch(event.request)
       .then((response) => {
-        return response || fetch(event.request);
+        // Check if we received a valid response
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+
+        // Clone the response
+        const responseToCache = response.clone();
+
+        caches.open(CACHE_NAME)
+          .then((cache) => {
+            cache.put(event.request, responseToCache);
+          });
+
+        return response;
+      })
+      .catch(() => {
+        // If network request fails, try to get it from cache
+        return caches.match(event.request);
       })
   );
 });
