@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
         { url: 'https://iconcut.vercel.app/', icon: '🎨', text: '图标生成', label: '访问图标生成工具' },
         { url: 'https://www.meirizixun.site/', icon: '📰', text: '每日资讯简报', label: '访问每日资讯简报' },
         { url: 'https://ipassword-ochre.vercel.app/', icon: '🔑', text: 'iPassword', label: '访问 iPassword' },
-        { url: 'https://www.pentaprompt.com/', icon: '🤖', text: 'PentaPrompt', label: '访问 PentaPrompt' }
+        { url: 'https://www.pentaprompt.com/', icon: '🤖', text: 'PentaPrompt', label: '访问 PentaPrompt' },
+        { url: 'https://huggingface.co/spaces/sinai2025/video-splitter', icon: '🎬', text: 'Video-splitter', label: '访问 Video-splitter' }
     ];
 
     function renderNavigation() {
