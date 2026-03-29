@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
     const navigationData = [
-        { url: 'https://zkobserver.site/', icon: '🔍', text: 'Web3观察', label: '访问Web3观察网站' },
-        { url: 'https://game.ok9981.com', icon: '🎮', text: '小游戏', label: '访问小游戏平台' },
-        { url: 'https://name.ok9981.com', icon: '✨', text: '取名', label: '访问取名工具' },
-        { url: 'https://thecodecraft.site/', icon: '🏗️', text: '小白建站', label: '访问小白建站' },
-        { url: 'http://indiestarter.space/', icon: '🔧', text: '建站工具', label: '访问建站工具' },
-        { url: 'https://iconcut.vercel.app/', icon: '🎨', text: '图标生成', label: '访问图标生成工具' },
-        { url: 'https://www.meirizixun.site/', icon: '📰', text: '每日资讯简报', label: '访问每日资讯简报' },
-        { url: 'https://ipassword-ochre.vercel.app/', icon: '🔑', text: 'iPassword', label: '访问 iPassword' },
-        { url: 'https://www.pentaprompt.com/', icon: '🤖', text: 'PentaPrompt', label: '访问 PentaPrompt' },
-        { url: 'https://huggingface.co/spaces/sinai2025/video-splitter', icon: '🎬', text: 'Video-splitter', label: '访问 Video-splitter' }
+        { url: 'https://zkobserver.site/', icon: '🔍', text: 'Web3观察', desc: '区块链网空观察与研究。', size: 'card--l', label: '访问Web3观察网站' },
+        { url: 'https://game.ok9981.com', icon: '🎮', text: '小游戏', desc: '致敬经典的小游乐场。', size: 'card--m', label: '访问小游戏平台' },
+        { url: 'https://name.ok9981.com', icon: '✨', text: '取名', desc: '快速生成好名字。', size: 'card--s', label: '访问取名工具' },
+        { url: 'https://thecodecraft.site/', icon: '🏗️', text: '小白建站', desc: '从 0 到 1 搭建网站。', size: 'card--m', label: '访问小白建站' },
+        { url: 'http://indiestarter.space/', icon: '🔧', text: '建站工具', desc: '精选建站与运营工具集合。', size: 'card--l', label: '访问建站工具' },
+        { url: 'https://iconcut.vercel.app/', icon: '🎨', text: '图标生成', desc: '一键生成 App / Web 图标。', size: 'card--m', label: '访问图标生成工具' },
+        { url: 'https://www.meirizixun.site/', icon: '📰', text: '每日资讯简报', desc: '每天 3 分钟了解热点。', size: 'card--m', label: '访问每日资讯简报' },
+        { url: 'https://ipassword-ochre.vercel.app/', icon: '🔑', text: 'iPassword', desc: '生成与管理高强度密码。', size: 'card--s', label: '访问 iPassword' },
+        { url: 'https://www.pentaprompt.com/', icon: '🤖', text: 'PentaPrompt', desc: 'Prompt 灵感与模板库。', size: 'card--m', label: '访问 PentaPrompt' },
+        { url: 'https://huggingface.co/spaces/sinai2025/video-splitter', icon: '🎬', text: 'Video-splitter', desc: '视频切分与处理（Hugging Face Space）。', size: 'card--l', label: '访问 Video-splitter' }
     ];
 
     function renderNavigation() {
@@ -17,14 +17,18 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!gridContainer) return;
 
         gridContainer.innerHTML = navigationData.map(item => {
-            // Add tracking parameter
             const separator = item.url.includes('?') ? '&' : '?';
             const trackedUrl = `${item.url}${separator}ref=ok9981.com`;
             
             return `
-            <a href="${trackedUrl}" class="nav-item" aria-label="${item.label}" target="_blank" rel="noopener noreferrer">
-                <div class="icon">${item.icon}</div>
-                <span>${item.text}</span>
+            <a href="${trackedUrl}" class="nav-item ${item.size || ''}" aria-label="${item.label}" target="_blank" rel="noopener noreferrer">
+                <div class="nav-item-content">
+                    <div class="nav-item-header">
+                        <div class="icon">${item.icon}</div>
+                        <div class="nav-title">${item.text}</div>
+                        <div class="nav-desc">${item.desc || ''}</div>
+                    </div>
+                </div>
             </a>
             `;
         }).join('');
@@ -82,12 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
             const searchTerm = e.target.value.toLowerCase().trim();
 
             navItems.forEach(item => {
-                const text = item.querySelector('span').textContent.toLowerCase();
-                const shouldShow = text.includes(searchTerm);
+                const title = (item.querySelector('.nav-title')?.textContent || '').toLowerCase();
+                const desc = (item.querySelector('.nav-desc')?.textContent || '').toLowerCase();
+                const shouldShow = (title + ' ' + desc).includes(searchTerm);
 
                 if (shouldShow) {
-                    item.style.display = 'flex';
-                    // Reset animation for better UX
+                    item.style.display = 'block';
                     item.style.animation = 'fadeIn 0.3s ease forwards';
                 } else {
                     item.style.display = 'none';

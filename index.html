@@ -46,20 +46,22 @@
     <link rel="preconnect" href="https://www.pentaprompt.com">
 
     <!-- External CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>
-        <div class="logo">SmartPortal</div>
+    <header class="topbar">
+        <div class="search-container">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="searchInput" placeholder="搜索工具..." aria-label="搜索工具">
+        </div>
+        <h1 class="logo">SmartPortal</h1>
     </header>
 
     <main>
-        <!-- Search Box -->
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="搜索工具..." aria-label="搜索工具">
-        </div>
-
         <div class="grid-container" id="gridContainer" role="navigation" aria-label="主要导航">
             <!-- Navigation items will be rendered by JavaScript -->
         </div>
