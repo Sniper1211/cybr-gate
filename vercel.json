@@ -2,19 +2,19 @@
   "rewrites": [
     {
       "source": "/name/sitemap.xml",
-      "destination": "https://namecradle.vercel.app/sitemap.xml"
+      "destination": "https://name.ok9981.com/sitemap.xml"
     },
     {
       "source": "/name/robots.txt",
-      "destination": "https://namecradle.vercel.app/robots.txt"
+      "destination": "https://name.ok9981.com/robots.txt"
     },
     {
       "source": "/name",
-      "destination": "https://namecradle.vercel.app/"
+      "destination": "https://name.ok9981.com/"
     },
     {
       "source": "/name/:path*",
-      "destination": "https://namecradle.vercel.app/:path*"
+      "destination": "https://name.ok9981.com/:path*"
     }
   ]
 }
