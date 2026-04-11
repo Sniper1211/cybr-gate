@@ -16,6 +16,10 @@
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/robots.txt"
     },
     {
+      "source": "/name/",
+      "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/"
+    },
+    {
       "source": "/name/:path*",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/:path*"
     }
