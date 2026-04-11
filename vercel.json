@@ -23,5 +23,34 @@
       "source": "/name/:path*",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/:path*"
     }
+  ],
+  "headers": [
+    {
+      "source": "/name",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    },
+    {
+      "source": "/name/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    },
+    {
+      "source": "/name/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    }
   ]
 }
