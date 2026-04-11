@@ -4,6 +4,11 @@
       "source": "/name",
       "destination": "/name/",
       "permanent": false
+    },
+    {
+      "source": "/gua",
+      "destination": "/gua/",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -22,6 +27,14 @@
     {
       "source": "/name/:path*",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/:path*"
+    },
+    {
+      "source": "/gua/",
+      "destination": "https://cyber-gua.vercel.app/"
+    },
+    {
+      "source": "/gua/:path*",
+      "destination": "https://cyber-gua.vercel.app/:path*"
     }
   ]
 }
