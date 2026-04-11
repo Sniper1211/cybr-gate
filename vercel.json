@@ -1,8 +1,16 @@
 {
   "rewrites": [
     {
+      "source": "/name/sitemap.xml",
+      "destination": "https://namecradle.vercel.app/sitemap.xml"
+    },
+    {
+      "source": "/name/robots.txt",
+      "destination": "https://namecradle.vercel.app/robots.txt"
+    },
+    {
       "source": "/name/:path*",
-      "destination": "https://name.ok9981.com/name/:path*"
+      "destination": "https://namecradle.vercel.app/name/:path*"
     }
   ]
 }
