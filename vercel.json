@@ -1,4 +1,11 @@
 {
+  "redirects": [
+    {
+      "source": "/name",
+      "destination": "/name/",
+      "permanent": false
+    }
+  ],
   "rewrites": [
     {
       "source": "/name/sitemap.xml",
@@ -7,10 +14,6 @@
     {
       "source": "/name/robots.txt",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/robots.txt"
-    },
-    {
-      "source": "/name",
-      "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/"
     },
     {
       "source": "/name/:path*",
