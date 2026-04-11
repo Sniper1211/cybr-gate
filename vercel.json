@@ -4,9 +4,18 @@
       "source": "/name",
       "destination": "/name/",
       "permanent": false
+    },
+    {
+      "source": "/gua",
+      "destination": "/gua/",
+      "permanent": false
     }
   ],
   "rewrites": [
+    {
+      "source": "/_next/:path*",
+      "destination": "https://cyber-gua.vercel.app/_next/:path*"
+    },
     {
       "source": "/name/sitemap.xml",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/sitemap.xml"
@@ -22,6 +31,14 @@
     {
       "source": "/name/:path*",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/:path*"
+    },
+    {
+      "source": "/gua/",
+      "destination": "https://cyber-gua.vercel.app/"
+    },
+    {
+      "source": "/gua/:path*",
+      "destination": "https://cyber-gua.vercel.app/:path*"
     }
   ],
   "headers": [
