@@ -9,8 +9,12 @@
       "destination": "https://namecradle.vercel.app/robots.txt"
     },
     {
+      "source": "/name",
+      "destination": "https://namecradle.vercel.app/"
+    },
+    {
       "source": "/name/:path*",
-      "destination": "https://namecradle.vercel.app/name/:path*"
+      "destination": "https://namecradle.vercel.app/:path*"
     }
   ]
 }
