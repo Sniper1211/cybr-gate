@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { url: 'https://game.ok9981.com', icon: '🎮', text: '小游戏', desc: '致敬经典的小游乐场。', size: 'card--m', label: '访问小游戏平台' },
         { url: 'https://name.ok9981.com', icon: '✨', text: '取名', desc: '快速生成好名字。', size: 'card--s', label: '访问取名工具' },
         { url: '/gua/', icon: '☯️', text: '变卦', desc: '六十四卦与变卦演算。', size: 'card--m', label: '访问 变卦（CyberGua）' },
+        { url: 'https://www.better4brain.com/', icon: '🧠', text: 'Neuro Grid', desc: '舒尔特方格专注训练。', size: 'card--m', label: '访问 Neuro Grid（舒尔特训练）' },
         { url: 'https://thecodecraft.site/', icon: '🏗️', text: '小白建站', desc: '从 0 到 1 搭建网站。', size: 'card--m', label: '访问小白建站' },
         { url: 'http://indiestarter.space/', icon: '🔧', text: '建站工具', desc: '精选建站与运营工具集合。', size: 'card--l', label: '访问建站工具' },
         { url: 'https://iconcut.vercel.app/', icon: '🎨', text: '图标生成', desc: '一键生成 App / Web 图标。', size: 'card--m', label: '访问图标生成工具' },
