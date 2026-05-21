@@ -9,9 +9,18 @@
       "source": "/gua",
       "destination": "/gua/",
       "permanent": false
+    },
+    {
+      "source": "/codecraft",
+      "destination": "/codecraft/",
+      "permanent": false
     }
   ],
   "rewrites": [
+    {
+      "source": "/codecraft/:path*",
+      "destination": "/codecraft/index.html"
+    },
     {
       "source": "/_next/:path*",
       "destination": "https://cyber-gua.vercel.app/_next/:path*"
@@ -39,6 +48,35 @@
     {
       "source": "/gua/:path*",
       "destination": "https://cyber-gua.vercel.app/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/name",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    },
+    {
+      "source": "/name/",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
+    },
+    {
+      "source": "/name/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "index, follow"
+        }
+      ]
     }
   ]
 }

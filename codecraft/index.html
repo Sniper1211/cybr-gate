@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Code Craft</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        background: #0b1020;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        display: block;
+        background: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id="codecraft" src="https://thecodecraft-sepia.vercel.app/" allowfullscreen></iframe>
+    <script>
+      const currentUrl = new URL(window.location.href);
+      const iframe = document.getElementById('codecraft');
+      const target = new URL('https://thecodecraft-sepia.vercel.app/');
+
+      const prefix = '/codecraft';
+      const path = currentUrl.pathname.startsWith(prefix)
+        ? currentUrl.pathname.slice(prefix.length) || '/'
+        : '/';
+
+      target.pathname = path;
+      target.search = currentUrl.search;
+      target.hash = currentUrl.hash;
+      iframe.src = target.toString();
+    </script>
+  </body>
+</html>
