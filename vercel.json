@@ -14,6 +14,11 @@
       "source": "/codecraft",
       "destination": "/codecraft/",
       "permanent": false
+    },
+    {
+      "source": "/nameSelector",
+      "destination": "/nameSelector/",
+      "permanent": false
     }
   ],
   "rewrites": [
@@ -34,12 +39,28 @@
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/robots.txt"
     },
     {
+      "source": "/nameSelector/sitemap.xml",
+      "destination": "https://name-selector-six.vercel.app/sitemap.xml"
+    },
+    {
+      "source": "/nameSelector/robots.txt",
+      "destination": "https://name-selector-six.vercel.app/robots.txt"
+    },
+    {
       "source": "/name/",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/"
     },
     {
+      "source": "/nameSelector/",
+      "destination": "https://name-selector-six.vercel.app/"
+    },
+    {
       "source": "/name/:path*",
       "destination": "https://name-cradle-git-main-busivaagmailcoms-projects.vercel.app/:path*"
+    },
+    {
+      "source": "/nameSelector/:path*",
+      "destination": "https://name-selector-six.vercel.app/:path*"
     },
     {
       "source": "/gua/",

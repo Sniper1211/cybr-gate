@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
         { url: 'https://zkobserver.site/', icon: '🔍', text: 'Web3观察', desc: '区块链网空观察与研究。', size: 'card--l', label: '访问Web3观察网站' },
         { url: 'https://game.ok9981.com', icon: '🎮', text: '小游戏', desc: '致敬经典的小游乐场。', size: 'card--m', label: '访问小游戏平台' },
         { url: 'https://www.ok9981.com/name/', icon: '✨', text: '取名', desc: '快速生成好名字。', size: 'card--s', label: '访问取名工具' },
+        { url: '/nameSelector/', icon: '🪪', text: 'nameSelector', desc: '按姓氏与音调筛选宝宝单字名。', size: 'card--m', label: '访问 nameSelector' },
         { url: '/gua/', icon: '☯️', text: '变卦', desc: '六十四卦与变卦演算。', size: 'card--m', label: '访问 变卦（CyberGua）' },
         { url: 'https://www.better4brain.com/', icon: '🧠', text: 'Neuro Grid', desc: '舒尔特方格专注训练。', size: 'card--m', label: '访问 Neuro Grid（舒尔特训练）' },
         { url: '/codecraft/', icon: '🏗️', text: '小白建站', desc: '从 0 到 1 搭建网站。', size: 'card--m', label: '访问小白建站' },
